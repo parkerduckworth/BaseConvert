@@ -5,6 +5,7 @@ This is a simple command-line tool that takes a decimal integer, and converts it
 
 
 Want to try it out?
+
 Simply:
 ```
 1. Clone or download the repository

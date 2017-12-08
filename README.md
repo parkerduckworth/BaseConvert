@@ -1,0 +1,1 @@
+Base convert is a simple command-line tool that takes a decimal integer, and converts it into its counterpart with a base of your choosing, base 9 and under.

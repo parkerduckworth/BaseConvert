@@ -26,7 +26,7 @@ print(single_line)
 def main(number, base):
     sequence = []
 
-    if base == 16:
+    if base > 10:
         hex(number, base)
     else:
         for i in range(int(len(str(number)) / 0.301) + 1):  # k = log10(2) ≈ 0.301
@@ -40,7 +40,7 @@ def main(number, base):
         prog_repeat()
 
 
-# Handles hexadecimal integers
+# Handles integers with a base > 10, up to hexadecimal integers
 def hex(number, base):
     sequence = []
     char_num_map = {'10': 'A', '11': 'B', '12': 'C', '13': 'D', '14': 'E', '15': 'F'}
@@ -48,7 +48,7 @@ def hex(number, base):
     for i in range(int(len(str(number)) / 0.301) + 1):  # k = log10(2) ≈ 0.301
         digit = str(get_remainder(number, base))
 
-        if int(digit) > 10:
+        if int(digit) >= 10:
             digit = char_num_map[digit]
 
         sequence.append(digit)
@@ -71,7 +71,7 @@ def prog_repeat():
         base = int(input("Enter base of conversion: "))
         print(single_line)
 
-        if base == 16:
+        if base > 10:
             hex(number, base)
         else:
             main(number, base)

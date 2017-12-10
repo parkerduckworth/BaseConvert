@@ -16,7 +16,7 @@ user$ cd BaseConvert
 ```
 3. Start the program within the terminal/shell 
 ```
-user$ python base_convert.py
+user$ python app.py
 ```
 4. Follow instructions displayed on screen
 ```

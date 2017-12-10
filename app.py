@@ -43,13 +43,13 @@ def main(number, base):
 # Handles integers with a base > 10, up to hexadecimal integers
 def hex(number, base):
     sequence = []
-    char_num_map = {'10': 'A', '11': 'B', '12': 'C', '13': 'D', '14': 'E', '15': 'F'}
+    hex_map = {'10': 'A', '11': 'B', '12': 'C', '13': 'D', '14': 'E', '15': 'F'}
 
     for i in range(int(len(str(number)) / 0.301) + 1):  # k = log10(2) ≈ 0.301
         digit = str(get_remainder(number, base))
 
         if int(digit) >= 10:
-            digit = char_num_map[digit]
+            digit = hex_map[digit]
 
         sequence.append(digit)
         number = get_quotient(number, base)

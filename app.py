@@ -5,7 +5,7 @@ single_line = "-" * 50
 # Header
 print()
 print(double_line)
-print("             Welcome to Base Convert.")
+print("              Welcome to BaseConvert")
 print(double_line)
 print()
 print("This program takes a decimal integer")
@@ -77,7 +77,9 @@ def prog_repeat():
             main(number, base)
 
     elif recurse.upper() == 'N':
+        print("ALL YOUR BASE ARE BELONG TO US.")
         print("Goodbye!")
+        print()
     else:
         print("Not a valid input.")
         prog_repeat()

@@ -1,7 +1,7 @@
 Welcome to Base Convert 
 =======================
 
-This is a simple command-line tool that takes a decimal integer, and converts it into its counterpart with a base of your choosing, up to base 16.
+This is a simple command-line tool that takes a decimal integer, and converts it into its counterpart with a base of your choosing, from base 2 up to base 16.
 
 
 Want to try it out?

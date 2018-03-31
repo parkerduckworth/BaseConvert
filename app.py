@@ -6,7 +6,7 @@ single_line = "-" * 50
 # Header
 print()
 print(double_line)
-print("              Welcome to BaseConvert")
+print(" " * 13, "Welcome to BaseConvert")
 print(double_line)
 print()
 print("""This program takes a decimal integer
@@ -18,7 +18,10 @@ print(single_line)
 
 # Main body of program
 def main(number, base):
-    sequence = []
+    sequence, negative = [], False
+
+    if number < 0:
+        negative, number = True, number * -1
 
     if base > 10:
         hex(number, base)
@@ -29,15 +32,21 @@ def main(number, base):
             number = get_quotient(number, base)
     
         result = ''.join(reversed([str(x) for x in sequence]))
-        print("Result: {}".format(result.lstrip('0')))
+        if negative:
+            print("Result: -{}".format(result.lstrip('0')))
+        else:
+            print("Result: {}".format(result.lstrip('0')))
         print(single_line)
         prog_repeat()
 
 
 # Handles integers with a base > 10, up to hexadecimal integers
 def hex(number, base):
-    sequence = []
+    sequence, negative = [], False
     hex_map = {'10': 'A', '11': 'B', '12': 'C', '13': 'D', '14': 'E', '15': 'F'}
+
+    if number < 0:
+        negative, number = True, number * -1
 
     for i in range(int(len(str(number)) / 0.301) + 1):  # k = log10(2) ≈ 0.301
         digit = str(get_remainder(number, base))
@@ -49,7 +58,10 @@ def hex(number, base):
         number = get_quotient(number, base)
     
     result = ''.join(reversed([str(x) for x in sequence]))
-    print("Result: {}".format(result.lstrip('0')))
+    if negative:
+        print("Result: -{}".format(result.lstrip('0')))
+    else:
+        print("Result: {}".format(result.lstrip('0')))
     print(single_line)
     prog_repeat()
     
@@ -71,8 +83,7 @@ def prog_repeat():
             main(number, base)
 
     elif recurse.upper() == 'N':
-        print("ALL YOUR BASE ARE BELONG TO US.")
-        print("Goodbye!")
+        print("ALL YOUR BASE ARE BELONG TO US.\nGoodbye!")
         print()
     else:
         print("Not a valid input.")

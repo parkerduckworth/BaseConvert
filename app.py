@@ -8,17 +8,10 @@ print(double_line)
 print("              Welcome to BaseConvert")
 print(double_line)
 print()
-print("This program takes a decimal integer")
-print("and converts it to any base")
-print("up to hexadecimal.")
+print("""This program takes a decimal integer
+and converts it to any base
+up to hexadecimal.""")
 print()
-print(single_line)
-
-
-# Input collection
-number = int(input("Enter number to convert: "))
-print(single_line)
-base = int(input("Enter base of conversion: "))
 print(single_line)
 
 
@@ -97,6 +90,17 @@ def get_remainder(dividend, divisor):
     return remainder
 
 
+# Input collection
+def initiate():
+    try:
+        number = int(input("Enter number to convert: "))
+        print(single_line)
+        base = int(input("Enter base of conversion: "))
+        print(single_line)
+        main(number, base)
+    except ValueError:
+        print('Invalid input. Please enter an integer.')
+        initiate()
 
-# Executes program
-main(number, base)
+
+initiate()

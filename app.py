@@ -1,3 +1,4 @@
+# Visual dividers
 double_line = "=" * 50
 single_line = "-" * 50
 
@@ -9,8 +10,8 @@ print("              Welcome to BaseConvert")
 print(double_line)
 print()
 print("""This program takes a decimal integer
-and converts it to any base
-up to hexadecimal.""")
+and converts it to any base, between 
+binary and hexadecimal.""")
 print()
 print(single_line)
 
@@ -99,7 +100,7 @@ def initiate():
         print(single_line)
         main(number, base)
     except ValueError:
-        print('Invalid input. Please enter an integer.')
+        print("Invalid input. Please enter an integer.")
         initiate()
 
 

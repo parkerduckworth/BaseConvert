@@ -26,13 +26,15 @@ def main(number, base):
         print("Base must be an integer between 2 and 16")
         initiate()
     else:
-        # k = log10(2) ≈ 0.301
-        for i in range(int(len(str(number)) / 0.301) + 1):
-            digit, number = get_remainder(number, base), get_quotient(number, base)
-            
-            if digit >= 10:
-                digit = hex_map[digit]
-            sequence += str(digit)
+        # Calculates quotient to be used as next coefficient
+        # and remainder to be used as digit in result sequence
+        while number > 0:
+            digit = number % base
+            if digit > 9:
+                sequence += hex_map[digit]
+            else:
+                sequence += str(digit)
+            number //= base
     
         result = sequence[::-1]
         print_result(result, negative)
@@ -52,22 +54,12 @@ def repeat_program():
         repeat_program()
 
 
-# Calculates quotient to be used as next coefficient
-def get_quotient(dividend, divisor):
-    return dividend // divisor
-
-
-# Calculates remainder used as digit in result sequence
-def get_remainder(dividend, divisor):
-    return dividend % divisor
-
-
 # Outputs result to the console
 def print_result(result, negative):
     if negative:
-        print("Result: -{}".format(result.lstrip('0')))
+        print("Result: -{}".format(result))
     else:
-        print("Result: {}".format(result.lstrip('0')))
+        print("Result: {}".format(result))
     print(single_line)
     repeat_program()
 

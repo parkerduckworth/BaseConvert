@@ -52,11 +52,7 @@ def repeat_program():
     print(single_line)
 
     if recurse.upper() == 'Y':
-        number = int(input("Enter number to convert: "))
-        print(single_line)
-        base = int(input("Enter base of conversion: "))
-        print(single_line)
-        main(number, base)
+        initiate()
     elif recurse.upper() == 'N':
         print("ALL YOUR BASE ARE BELONG TO US.\nGoodbye!\n")
     else:
@@ -66,14 +62,12 @@ def repeat_program():
 
 # Calculates quotient to be used as next coefficient
 def get_quotient(dividend, divisor):
-    quotient = dividend // divisor
-    return quotient
+    return dividend // divisor
 
 
 # Calculates remainder used as digit in result sequence
 def get_remainder(dividend, divisor):
-    remainder = dividend % divisor
-    return remainder
+    return dividend % divisor
 
 
 # Outputs result to the console
@@ -96,8 +90,8 @@ if __name__ == '__main__':
     print(double_line)
     print(" " * 13, "Welcome to BaseConvert")
     print(double_line)
-    print()
-    print("""This program takes a decimal integer
+    print("""
+    This program takes a decimal integer
     and converts it to any base, between 
     binary and hexadecimal.""")
     print()

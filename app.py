@@ -16,8 +16,8 @@ def initiate():
 
 # Main body of program
 def main(number, base):
-    sequence, negative = [], False
-    hex_map = {'10': 'A', '11': 'B', '12': 'C', '13': 'D', '14': 'E', '15': 'F'}
+    sequence, negative = "", False
+    hex_map = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
 
     if number < 0:
         negative, number = True, number * -1
@@ -27,22 +27,14 @@ def main(number, base):
         initiate()
     else:
         # k = log10(2) ≈ 0.301
-        if base <= 10:
-            for i in range(int(len(str(number)) / 0.301) + 1):
-                digit = get_remainder(number, base)
-                sequence.append(digit)
-                number = get_quotient(number, base)
-        else:
-            for i in range(int(len(str(number)) / 0.301) + 1):  
-                digit = str(get_remainder(number, base))
-
-                if int(digit) >= 10:
-                    digit = hex_map[digit]
-
-                sequence.append(digit)
-                number = get_quotient(number, base)
+        for i in range(int(len(str(number)) / 0.301) + 1):
+            digit, number = get_remainder(number, base), get_quotient(number, base)
+            
+            if digit >= 10:
+                digit = hex_map[digit]
+            sequence += str(digit)
     
-        result = ''.join(reversed([str(x) for x in sequence]))
+        result = sequence[::-1]
         print_result(result, negative)
   
 

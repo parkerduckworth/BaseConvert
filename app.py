@@ -16,11 +16,11 @@ def initiate():
 
 # Main body of program
 def main(number, base):
-    sequence, negative = "", False
+    sequence, is_negative = "", False
     hex_map = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
 
     if number < 0:
-        negative, number = True, number * -1
+        is_negative, number = True, number * -1
 
     if base < 2 or base > 16:
         print("Base must be an integer between 2 and 16")
@@ -30,6 +30,7 @@ def main(number, base):
         # and remainder to be used as digit in result sequence
         while number > 0:
             digit = number % base
+
             if digit > 9:
                 sequence += hex_map[digit]
             else:
@@ -37,7 +38,7 @@ def main(number, base):
             number //= base
     
         result = sequence[::-1]
-        print_result(result, negative)
+        print_result(result, is_negative)
   
 
 # Allows for repeated sessions
@@ -55,11 +56,12 @@ def repeat_program():
 
 
 # Outputs result to the console
-def print_result(result, negative):
-    if negative:
+def print_result(result, is_negative):
+    if is_negative:
         print("Result: -{}".format(result))
     else:
         print("Result: {}".format(result))
+        
     print(single_line)
     repeat_program()
 
@@ -75,9 +77,9 @@ if __name__ == '__main__':
     print(" " * 13, "Welcome to BaseConvert")
     print(double_line)
     print("""
-    This program takes a decimal integer
-    and converts it to any base, between 
-    binary and hexadecimal.""")
-    print()
+       This program takes a decimal integer
+       and converts it to any base, between 
+       binary and hexadecimal.
+       """)
     print(single_line)
     initiate()
